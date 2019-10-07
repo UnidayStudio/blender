@@ -3988,49 +3988,30 @@ EXP_PYMETHODDEF_DOC(KX_GameObject, rayCastTo,
 	Py_RETURN_NONE;
 }
 
+staic PyObject* none_tuple_x(unsigned int tupleSize)
+{
+	PyObject* ret = PyTuple_New(tupleSize);
+	
+	for (int i=0; i<tupleSize; i++){
+		PyTuple_SET_ITEM(ret, i, Py_None);
+		Py_INCREF(Py_None);
+	}
+	return ret
+}
+
 /* faster then Py_BuildValue since some scripts call raycast a lot */
 static PyObject *none_tuple_3()
 {
-	PyObject *ret = PyTuple_New(3);
-	PyTuple_SET_ITEM(ret, 0, Py_None);
-	PyTuple_SET_ITEM(ret, 1, Py_None);
-	PyTuple_SET_ITEM(ret, 2, Py_None);
-
-	Py_INCREF(Py_None);
-	Py_INCREF(Py_None);
-	Py_INCREF(Py_None);
-	return ret;
+	return none_tuple_x(3);
 }
 static PyObject *none_tuple_4()
 {
-	PyObject *ret = PyTuple_New(4);
-	PyTuple_SET_ITEM(ret, 0, Py_None);
-	PyTuple_SET_ITEM(ret, 1, Py_None);
-	PyTuple_SET_ITEM(ret, 2, Py_None);
-	PyTuple_SET_ITEM(ret, 3, Py_None);
-
-	Py_INCREF(Py_None);
-	Py_INCREF(Py_None);
-	Py_INCREF(Py_None);
-	Py_INCREF(Py_None);
-	return ret;
+	return none_tuple_x(4);
 }
 
 static PyObject *none_tuple_5()
 {
-	PyObject *ret = PyTuple_New(5);
-	PyTuple_SET_ITEM(ret, 0, Py_None);
-	PyTuple_SET_ITEM(ret, 1, Py_None);
-	PyTuple_SET_ITEM(ret, 2, Py_None);
-	PyTuple_SET_ITEM(ret, 3, Py_None);
-	PyTuple_SET_ITEM(ret, 4, Py_None);
-
-	Py_INCREF(Py_None);
-	Py_INCREF(Py_None);
-	Py_INCREF(Py_None);
-	Py_INCREF(Py_None);
-	Py_INCREF(Py_None);
-	return ret;
+	return none_tuple_x(5);
 }
 
 EXP_PYMETHODDEF_DOC(KX_GameObject, rayCast,
