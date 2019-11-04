@@ -1,9 +1,10 @@
 #ifndef __SG_SCENE_H__
 #define __SG_SCENE_H__
 
+#include "SG_NodeInterface.h"
 #include "SG_Node.h"
 
-class SG_Node;
+//class SG_NodeInterface;
 
 class SG_Scene
 {
@@ -25,21 +26,21 @@ public:
 	 * \param origObject The original object to duplicate.
 	 * \return The replicated object.
 	 */
-	virtual SG_Object *ReplicateNodeObject(SG_Node *node, SG_Object *origObject) = 0;
+	virtual SG_Object *ReplicateNodeObject(SG_NodeInterface *node, SG_Object *origObject) = 0;
 
 	/** Destruct node object.
 	 * \param node The node owning the object to destruct.
 	 * \param object The object to destruct.
 	 */
-	virtual void DestructNodeObject(SG_Node *node, SG_Object *object) = 0;
+	virtual void DestructNodeObject(SG_NodeInterface *node, SG_Object *object) = 0;
 
-	void Schedule(SG_Node *node);
-	void Reschedule(SG_Node *node);
+	void Schedule(SG_NodeInterface *node);
+	void Reschedule(SG_NodeInterface *node);
 
 	/// Add a root node.
-	void AddRootNode(SG_Node *node);
+	void AddRootNode(SG_NodeInterface *node);
 	/// Remove a root node.
-	void RemoveRootNode(SG_Node *node);
+	void RemoveRootNode(SG_NodeInterface *node);
 
 	/// Destruct all root nodes.
 	void DestructRootNodes();
