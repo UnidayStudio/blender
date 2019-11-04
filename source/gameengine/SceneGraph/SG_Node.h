@@ -25,6 +25,7 @@
 #define __SG_NODE_H__
 
 #include "SG_QList.h"
+#include "SG_NodeInterface.h"
 #include "SG_ParentRelation.h"
 
 #include "mathfu.h"
@@ -75,7 +76,7 @@ typedef std::vector<SG_Node *> NodeList;
 /**
  * Scenegraph node.
  */
-class SG_Node : public SG_QList, public mt::SimdClassAllocator
+class SG_Node : public SG_QList, public mt::SimdClassAllocator, public SG_NodeInterface
 {
 public:
 
