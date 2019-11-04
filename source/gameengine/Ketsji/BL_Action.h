@@ -82,7 +82,7 @@ private:
 	void SetLocalTime(float curtime);
 	void ResetStartTime(float curtime);
 	void IncrementBlending(float curtime);
-	void BlendShape(struct Key* key, float srcweight, std::vector<float>& blendshape);
+	static void BlendShape(struct Key* key, float srcweight, std::vector<float>& blendshape);
 public:
 	BL_Action(class KX_GameObject* gameobj);
 	~BL_Action();
